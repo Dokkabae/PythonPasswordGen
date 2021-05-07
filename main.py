@@ -9,11 +9,18 @@ def runPS(cmd):
     return completed
 
 def generatePass(wordlist,symbollist):
-    completedPass = (str(wordlist[randomnumber(0,(int(len(words)) - 1))]) + str(randomnumber[1,100]) + str(symbollist[randomnumber(0,(int(len(symbols)) - 1))]))
+    wordlistLen = len(wordlist) - 1
+    symbollistLen = len(symbollist) - 1
+
+
+    randomWord = wordlist[randomnumber(0,int(wordlistLen))]
+    randomSymbol = symbollist[randomnumber(0,int(symbollist))]
+
+    completedPass = (randomWord + str(randomnumber[1,100]) + randomSymbol)
     return completedPass
 
 
 print(generatePass(words,symbols))
 
-#runPS("Write-Out '{}' \| clip").format(geberatePass())
+#runPS("Write-Out '{}' | clip").format(generatePass())
 
