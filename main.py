@@ -10,6 +10,7 @@ def runPSClip(cmd):
     return completedBaseCommand
 
 def createPSClip(password):
+    print(password)
     writeOutCommand = "Write-Output \'{}\' ".format(password)
     fullCommand = writeOutCommand + "| clip"
     return fullCommand
@@ -25,9 +26,6 @@ def generatePass(wordlist,symbollist):
 
     completedPass = randomWord + str(randomnumber(1,100)) + randomSymbol
     return completedPass
-
-
-print(generatePass(words,symbols))
 
 psClipCommand = createPSClip(generatePass(words,symbols))
 
