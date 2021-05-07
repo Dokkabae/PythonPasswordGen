@@ -10,7 +10,7 @@ def runPSClip(cmd):
     return completedBaseCommand
 
 def createPSClip(password):
-    writeOutCommand = "Write-Out \'{}\' ".format(password)
+    writeOutCommand = "Write-Output \'{}\' ".format(password)
     fullCommand = writeOutCommand + "| clip"
     return fullCommand
 
