@@ -4,9 +4,11 @@ import subprocess
 words = ['Ocean', 'Waves', 'Apple', 'Glass', 'Grass', 'Delta', 'Bravo', 'Alpha']
 symbols = ['!','£','$','%','^','&','*','@','?','#']
 
+
 def runPS(cmd):
     completed = subprocess.run(["powershell", "-Command", cmd], capture_output=True)
     return completed
+
 
 def generatePass(wordlist,symbollist):
     wordlistLen = len(wordlist) - 1
@@ -22,5 +24,5 @@ def generatePass(wordlist,symbollist):
 
 print(generatePass(words,symbols))
 
-#runPS("Write-Out '{}' | clip").format(generatePass())
+runPS("Write-Out '{}' | clip").format(generatePass())
 
