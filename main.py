@@ -10,8 +10,9 @@ def runPSClip(cmd):
     return completedBaseCommand
 
 def createPSClip(password):
-    command = "Write-Out '{}' | clip".format(password)
-    return command
+    writeOutCommand = "Write-Out \'{}\' ".format(password)
+    fullCommand = writeOutCommand + "| clip"
+    return fullCommand
 
 
 def generatePass(wordlist,symbollist):
