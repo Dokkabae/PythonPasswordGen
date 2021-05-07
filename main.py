@@ -28,7 +28,7 @@ def generatePass(wordlist,symbollist):
 
 print(generatePass(words,symbols))
 
-psClipCommand = createPSClip(generatePass())
+psClipCommand = createPSClip(generatePass(words,symbols))
 
 runPSClip(psClipCommand)
 
