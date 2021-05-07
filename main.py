@@ -5,9 +5,13 @@ words = ['Ocean', 'Waves', 'Apple', 'Glass', 'Grass', 'Delta', 'Bravo', 'Alpha']
 symbols = ['!','£','$','%','^','&','*','@','?','#']
 
 
-def runPS(cmd):
-    completed = subprocess.run(["powershell", "-Command", cmd], capture_output=True)
-    return completed
+def runPSClip(cmd):
+    completedBaseCommand = subprocess.run(["powershell", "-Command", cmd], capture_output=True)
+    return completedBaseCommand
+
+def createPSClip(password):
+    command = "Write-Out '{}' | clip".format(password)
+    return command
 
 
 def generatePass(wordlist,symbollist):
@@ -16,13 +20,16 @@ def generatePass(wordlist,symbollist):
 
 
     randomWord = wordlist[randomnumber(0,int(wordlistLen))]
-    randomSymbol = symbollist[randomnumber(0,int(symbollist))]
+    randomSymbol = symbollist[randomnumber(0,int(symbollistLen))]
 
-    completedPass = (randomWord + str(randomnumber[1,100]) + randomSymbol)
+    completedPass = randomWord + str(randomnumber(1,100)) + randomSymbol
     return completedPass
 
 
 print(generatePass(words,symbols))
 
-runPS("Write-Out '{}' | clip").format(generatePass())
+psClipCommand = createPSClip(generatePass())
+
+runPSClip(psClipCommand)
+
 
