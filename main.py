@@ -1,5 +1,6 @@
 from random import randint as randomnumber
 import subprocess
+from time import sleep
 
 words = ['Ocean', 'Waves', 'Apple', 'Glass', 'Grass', 'Delta', 'Bravo', 'Alpha']
 symbols = ['!','£','$','%','^','&','*','@','?','#']
@@ -31,4 +32,4 @@ psClipCommand = createPSClip(generatePass(words,symbols))
 
 runPSClip(psClipCommand)
 
-
+input("Press any key to close")
